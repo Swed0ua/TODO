@@ -1,0 +1,36 @@
+
+.input__wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.input__wrapper > label {
+    margin-bottom: 10px;
+}
+
+
+.input__wrapper  .input__cst {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.input__CST1 .input__cst {
+    border: 1px solid var(--color2);
+    background-color:transparent;
+}
+
+.input__CST1 .input__cst:focus {
+    border-color: rgb(20, 207, 20);
+}
+
+.input__err {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    color: red;
+    font-size: 0.8rem;
+}

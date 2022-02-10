@@ -1,0 +1,52 @@
+.list__wrapper {
+    width: 100%;
+    
+}
+
+.list__item {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--color3);
+    display: flex;
+    align-items: center;
+    margin: 0.7em 0;
+}
+
+.list__item:first-child {
+    margin-top: 0;
+}
+.list__item:last-child {
+    margin-bottom: 0;
+}
+
+.list__item > span {
+    margin: 0 0.5rem;
+}
+
+.item__name {
+    flex-grow: 1;
+}
+
+.item__closer {
+    opacity: 0;
+}
+
+.list__item:hover
+.item__closer {
+    opacity: 1;
+}
+
+.list__inputs {
+    flex-direction: row;
+}
+
+.list__inputs>input {
+    background-color: var(--color2) ;
+}
+
+/** Checked **/
+
+._checked.list__item {
+    opacity: 0.6;
+    text-decoration: line-through;
+}

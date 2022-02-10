@@ -1,0 +1,19 @@
+nav {
+  background-color: var(--mainDarkColor) ;
+}
+
+.nav__mn {
+    flex-grow: 1;
+  }
+  
+  .nav__item {
+    cursor: pointer;
+    width: fit-content;
+    padding: 2px;
+    margin: 4px;
+  }
+  
+  .nav__item:hover {
+    text-decoration: underline ;
+    color: var(--color3);
+  }

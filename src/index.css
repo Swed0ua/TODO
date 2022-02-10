@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+:root {
+  --mainDarkColor: #2A1C35;
+  --colorHeader: #1E124D;
+  --color2: #ffffff;
+  --color3: #DAEBF5;
+  --generalPad: 1.5rem;
+  --mainGradient: linear-gradient(180deg, rgba(87,30,131,1) 0%, rgba(44,132,151,1) 100%);
+  --inputSize: 1.2rem;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  color: var(--color2);
+}
+
+.App {
+  display: grid;
+  grid-template-areas: 
+  'header header'
+  'nav-bar main'
+  'nav-bar footer'
+  ;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.App > * {
+  position: relative;
+  padding: var(--generalPad);
+  overflow: hidden;
+}
+
+header{
+  grid-area: header;
+}
+
+NAV {
+  grid-area: nav-bar;
+  background-color: red;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content__container {
+  grid-area: main;
+  background: var(--mainGradient);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  height: 100%;
+}
+
+.content__container > * {
+  padding: var(--generalPad);
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+/** General set **/
+
+UL,LI{
+ margin: 0;
+ padding: 0;
+ list-style: none;
+}
+
+A {
+  text-decoration: none;
+  color: inherit;
+}
+
+H1 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.castom__chackbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.castom__chackbox  input {
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: var(--inputSize);
+  min-width: var(--inputSize);
+}
+
+.closer {
+  width: var(--inputSize);
+  height: var(--inputSize);
+  cursor: pointer;
+  position: relative;
+  border-radius: 90%;
+  -webkit-border-radius: 90%;
+  -moz-border-radius: 90%;
+  -ms-border-radius: 90%;
+  -o-border-radius: 90%;
+  transition: ease transform .3s;
+  -webkit-transition: ease transform .3s;
+  -moz-transition: ease transform .3s;
+  -ms-transition: ease transform .3s;
+  -o-transition: ease transform .3s;
+}
+
+.closer::after,
+.closer::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--mainDarkColor);
+  transform: translate(0%, -50%) rotate(45deg);
+  -webkit-transform: translate(0%, -50%) rotate(45deg);
+  -moz-transform: translate(0%, -50%) rotate(45deg);
+  -ms-transform: translate(0%, -50%) rotate(45deg);
+  -o-transform: translate(0%, -50%) rotate(45deg);
+  top: 50%;
+  left: 0;
+}
+
+.closer::after {
+  transform: translate(0%, -50%) rotate(-45deg);
+  -webkit-transform: translate(0%, -50%) rotate(-45deg);
+  -moz-transform: translate(0%, -50%) rotate(-45deg);
+  -ms-transform: translate(0%, -50%) rotate(-45deg);
+  -o-transform: translate(0%, -50%) rotate(-45deg);
+}
+
+.closer:hover {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+
+
+.eclipse__wrapper {
+  position: relative;
+    padding: var(--generalPad);
+    padding-bottom: 3.5rem;
+    background-color: rgba(253, 146, 146, 13%);
+    color: var(--mainDarkColor);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 50000s ease-in-out 0s;
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%);
+  -webkit-transition: background-color 50000s ease-in-out 0s;
+  -moz-transition: background-color 50000s ease-in-out 0s;
+  -ms-transition: background-color 50000s ease-in-out 0s;
+  -o-transition: background-color 50000s ease-in-out 0s;
+}
+
+
+/** Button styles **/
+Button {
+  font-size: 1.2rem;
+  border: none;
+  padding: 5px var(--generalPad);
+  cursor: pointer;
+  transition: all ease 0.4s;
+  -webkit-transition: all ease 0.4s;
+  -moz-transition: all ease 0.4s;
+  -ms-transition: all ease 0.4s;
+  -o-transition: all ease 0.4s;
+}
+
+.but_1 {
+  background-color: var(--colorHeader);
+  color: var(--color2);
+}
+
+.but_1:hover {
+  background-color: var(--mainDarkColor) ;
+  color: rgb(17, 223, 161);
+}
+
+
+/** LOADER PATTERN **/
+
+.loader__pattern {
+  display: none;
+}
+
+.loader__pattern._active {
+  display: block;
+}
+
+.loader__pattern,
+.loader__pattern > img{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .97;
+}
+
+.loader__pattern > img {
+  top: -10px;
+  object-fit: cover;
+}

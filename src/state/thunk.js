@@ -17,6 +17,8 @@ export const firstAuthTunk = () => (dispatch) => {
         })
 }
 
+
+
 export const getDataWithServThunk = (id) => (dispatch) =>{
     AuthAPI.getDatabase(id)
 }

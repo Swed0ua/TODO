@@ -10,16 +10,17 @@ import Header from './components/Header/Header';
 import MyLists from './components/MyLists/MyLists';
 import NavContainer from './components/NavContainer/NavContainer';
 import Settings from './components/Settings/Settings';
-import { firstAuthTunk } from './state/thunk';
+import { firstAuthTunk, getDataWithServThunk } from './state/thunk';
 
 
 function App() {
   let dispatch = useDispatch()
-  let {isAuth} = useSelector((state)=> state.authReducer);
+  let {isAuth, authId} = useSelector((state)=> state.authReducer);
   let statePopup = useSelector(state => state.popupReducer.popupList);
 
   useEffect(()=>{
       dispatch(firstAuthTunk())
+     
   }, [])
 
   let routes = [

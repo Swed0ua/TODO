@@ -24,7 +24,6 @@ const Popup = ({text, id, stage}) => {
 
     function lifeRemove (){
         setTimeout(()=>{
-            console.log('warning')
             removeItem(id)
         }, 5000)
     }

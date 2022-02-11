@@ -11,14 +11,14 @@ export const assignId = (state) => state.length ? state[state.length-1].id + 1 :
 export const firstAuthTunk = () => (dispatch) => {
     return new Promise((resolve, reject)=> resolve(dispatch(getLocalDataThunk(AUTH))))
         .then((e)=>{
-            let props = [true]
-            if (e.id && e.login) {
-                props.push(e.login)
-                props.push(e.id)
-            }
             dispatch(initializationActionCreator())
-            dispatch(authChangeActionCreator(...props))
+            dispatch(authChangeActionCreator(true, e.id, e.login))
+            dispatch(getDataWithServThunk(e.id))
         })
+}
+
+export const getDataWithServThunk = (id) => (dispatch) =>{
+    AuthAPI.getDatabase(id)
 }
 
 export const setAuthLocalDataThunk = (event ,login = '', password="", id="") => (dispatch) => {
@@ -32,11 +32,12 @@ export const setAuthLocalDataThunk = (event ,login = '', password="", id="") => 
     }
     LocalData.setState(AUTH, authUser)
     dispatch(authChangeActionCreator(event, login, id))
+    dispatch(getDataWithServThunk(id))
 }
 
 export const singInThunk = (login = null, password = null) => (dispatch) => {
-    AuthAPI.signIn(login, password).then(({uid}) => {
-          dispatch(setAuthLocalDataThunk(true, login, password, uid))
+    AuthAPI.signIn(login, password).then((id) => {
+          dispatch(setAuthLocalDataThunk(true, login, password, id))
     }).catch(err => {
         let errroText = 'login or password is invalid'
         let error = stopSubmit('login', {_error: errroText})

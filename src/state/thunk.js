@@ -12,7 +12,7 @@ export const firstAuthTunk = () => (dispatch) => {
     return new Promise((resolve, reject)=> resolve(dispatch(getLocalDataThunk(AUTH))))
         .then((e)=>{
             dispatch(initializationActionCreator())
-            dispatch(authChangeActionCreator(true, e.id, e.login))
+            dispatch(authChangeActionCreator(true, e.login, e.id))
             dispatch(getDataWithServThunk(e.id))
         })
 }

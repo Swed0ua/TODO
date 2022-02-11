@@ -4,9 +4,7 @@ const POPUP__ADD = 'POPUP__ADD',
       REMOVE__ADD = 'REMOVE__ADD'
 
 let initialState = {
-    popupList: [
-        {id: 0, text: 'ou yep', stage: 'warning'},
-        {id: 2, text: 'oh no', stage: 'error'}
+    popupList: [ 
     ]
 }
 

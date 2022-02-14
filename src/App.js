@@ -22,7 +22,6 @@ function App() {
 
   useEffect(()=>{
       dispatch(firstAuthTunk())
-     
   }, [])
 
   let routes = [
@@ -35,7 +34,14 @@ function App() {
   ]
 
   return (
-   <BrowserRouter  >
+    <BrowserRouter  >
+     <AppContent routes={routes} statePopup={statePopup} isAuth={isAuth} authId={authId}/>
+   </BrowserRouter >
+  );
+}
+
+const AppContent = ({routes, statePopup, isAuth, authId}) => {
+  return (
      <div className="App">
       <Header/>
       <NavContainer />
@@ -49,12 +55,8 @@ function App() {
         <Footer />
       </div>
       <PopupContainer state={statePopup} />
-      <div class="App__loader">
-        {/* <Loader loading={!isAuth} /> */}
-      </div>
-    </div>
-   </BrowserRouter >
-  );
+    </div>   
+  )
 }
 
 export default App;

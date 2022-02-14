@@ -3,6 +3,7 @@
 .loader__pattern {
     display: none;
     pointer-events: all;
+    z-index: 20;
   }
   
   .loader__pattern._active {

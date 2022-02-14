@@ -67,7 +67,13 @@ export const singOutThunk = () => (dispatch) => {
 }
 
 export const createAccountThunk = (login = null, password = null) => (dispatch) => {
-    AuthAPI.createAccount(login, password)
+    AuthAPI.createAccount(login, password).then(e=>{
+        dispatch(singInThunk(login, password))
+        dispatch( addPopupActionCreator(`registration is succes. ID => ${e}`, 'succes') )
+    }).catch(err=>{
+        console.log(err)
+        dispatch( addPopupActionCreator(err.toString(), 'error') )
+    })
 }
 
 export const ToDoListsEventTunk = (event, id = 'FbM0EoauMvSA7nJOrIyEsX88t6n1', state = []) => (dispatch) => {

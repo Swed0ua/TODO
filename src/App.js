@@ -5,6 +5,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import Authorization from './components/Authorization/Authorization';
 import Calendar from './components/Calendar/Calendar';
 import Footer from './components/Footer/Footer';
+import Loader from './components/General/Loader/Loader';
 import PopupContainer from './components/General/PopUp/popup';
 import Header from './components/Header/Header';
 import MyLists from './components/MyLists/MyLists';
@@ -17,6 +18,7 @@ function App() {
   let dispatch = useDispatch()
   let {isAuth, authId} = useSelector((state)=> state.authReducer);
   let statePopup = useSelector(state => state.popupReducer.popupList);
+  console.log(isAuth)
 
   useEffect(()=>{
       dispatch(firstAuthTunk())
@@ -40,13 +42,16 @@ function App() {
       <div className="content__container">
           <Switch>
             {routes.map(elem=>{
-               return <Route path={elem.path}  render={()=><elem.Comonent {...elem.props} isAuth={isAuth} />}></Route>   
+               return <Route path={elem.path}  render={()=><elem.Comonent {...elem.props} isAuth={isAuth} authId={authId} />}></Route>   
             })}
           </Switch>
           
         <Footer />
       </div>
       <PopupContainer state={statePopup} />
+      <div class="App__loader">
+        {/* <Loader loading={!isAuth} /> */}
+      </div>
     </div>
    </BrowserRouter >
   );

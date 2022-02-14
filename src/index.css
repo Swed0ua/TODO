@@ -198,52 +198,14 @@ select:-webkit-autofill:focus {
   -o-transition: background-color 50000s ease-in-out 0s;
 }
 
+/** LOADER **/
 
-/** Button styles **/
-Button {
-  font-size: 1.2rem;
-  border: none;
-  padding: 5px var(--generalPad);
-  cursor: pointer;
-  transition: all ease 0.4s;
-  -webkit-transition: all ease 0.4s;
-  -moz-transition: all ease 0.4s;
-  -ms-transition: all ease 0.4s;
-  -o-transition: all ease 0.4s;
-}
-
-.but_1 {
-  background-color: var(--colorHeader);
-  color: var(--color2);
-}
-
-.but_1:hover {
-  background-color: var(--mainDarkColor) ;
-  color: rgb(17, 223, 161);
-}
-
-
-/** LOADER PATTERN **/
-
-.loader__pattern {
-  display: none;
-}
-
-.loader__pattern._active {
-  display: block;
-}
-
-.loader__pattern,
-.loader__pattern > img{
+.App__loader {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: .97;
-}
-
-.loader__pattern > img {
-  top: -10px;
-  object-fit: cover;
+  z-index: 20;
+  pointer-events: none;
 }

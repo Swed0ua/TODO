@@ -1,0 +1,52 @@
+/** Button styles **/
+Button {
+    font-size: 1.2rem;
+    border: none;
+    padding: 5px var(--generalPad);
+    cursor: pointer;
+    transition: all ease 0.4s;
+    -webkit-transition: all ease 0.4s;
+    -moz-transition: all ease 0.4s;
+    -ms-transition: all ease 0.4s;
+    -o-transition: all ease 0.4s;
+    position: relative;
+
+  }
+
+Button > .button__content {
+    position: relative;
+    z-index: 1;
+}
+
+.butDef {
+    background-color:var(--color3);
+    color: var(--mainDarkColor);
+}
+
+.butDef:hover {
+    background-color:rgb(121, 38, 103);
+    color: var(--color3);
+}
+
+
+.but1 {
+background-color: transparent;
+border: 1px solid var(--color2);
+color: var(--color2);
+outline: 1px solid;
+outline-color: var(--color2);
+outline-offset: -1px;
+}
+
+.but1:hover {
+    outline-offset: 10px;
+    outline-color: transparent;
+    box-shadow: inset 0px 0px 15px var(--color2);
+}
+
+  
+.authorization__button {
+    margin-top: 1.5rem !important ;
+    padding: 1rem;
+    width: 200px;
+}

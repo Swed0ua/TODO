@@ -25,7 +25,7 @@ const starCountRef = ref(db);
 
 
 
-// API for LocalStorage 
+// Api for work with farebase
 export default function TEST () {
     localStorage.setItem('name', 'TO-DO list "react appp"')
 }
@@ -41,11 +41,12 @@ export const AuthAPI = {
           return userCredential.user.uid;
         })
     },
-    getDatabase(id){
+    getTODOListData(id){
         console.log(id)
         return get(child(starCountRef, `todos/${id}`)).then((snapshot) => {
             if (snapshot.exists()) {
               console.log(snapshot.val(), id);
+              return snapshot.val()
             } else {
               console.log("No data available");
             }
@@ -55,6 +56,8 @@ export const AuthAPI = {
     }
 }
 
+
+// Api for work with LocalState
 
 export const LocalData = {
     getState(stateName){

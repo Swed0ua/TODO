@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import{ changeInputActionCreator, deleteTaskActionCreator, getTaskActionCreator } from "../../state/list_reducer";
 import { addPopupActionCreator } from "../../state/popup_reducer";
-import { addTaskThunk, changeCheckedThunk, changeLocalDataThunk, deleteTaskThunk, getLocalDataThunk } from "../../state/thunk";
+import { addTaskThunk, changeCheckedThunk, changeLocalDataThunk, deleteTaskThunk, getLocalDataThunk, ToDoListsEventTunk } from "../../state/thunk";
+import Button from "../General/Button/Button";
 import ListItem from "./ListItem/ListItem";
 import "./MyLists.css"
 
@@ -31,7 +32,8 @@ const MyLists = (props) => {
     }
 
     const getTaskList = () => {
-        dispatch(getLocalDataThunk('tasks'))
+        console.log(`authID + ${props.authId}`)
+        dispatch(ToDoListsEventTunk('GET', props.authId))
     }
 
     const changeCheckedInput = (id) => {
@@ -67,8 +69,8 @@ const MyLists = (props) => {
           </h1>
           <div className="list__wrapper eclipse__wrapper">
             <div className="list__inputs input__wrapper">
-                <button className="but_1" onClick={()=>addTask()} >asddad</button>
-                <input placeholder="write text" value={getInputText } ref={inputText} onChange={() => changeInput()} type="text" name="text" />
+                <Button onClickEvent={addTask} classes='but1' content="add tasks" />
+                {<input placeholder="write text" value={getInputText } ref={inputText} onChange={() => changeInput()} type="text" name="text" />}
             </div>
             {listDone}
           </div>

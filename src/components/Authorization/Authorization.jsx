@@ -6,9 +6,9 @@ import { useDispatch } from "react-redux";
 import { maxSimbol, minSimbol, validSimpleInput } from "../../state/form_validator";
 import { NavLink, Route, Routes, Switch } from "react-router-dom";
 import WithAuthRedirect from "../../hoc/WithAuthRedirect";
-import loaderPattern from './../../loader_pattern.gif';
 import InputCst from "./../General/InputCst/InputCst.jsx";
-import { addPopupActionCreator } from "../../state/popup_reducer";
+import Button from "../General/Button/Button";
+import Loader from "../General/Loader/Loader";
 let maxSimbol15 = maxSimbol(15);
 let minSimbol6 = minSimbol(6)
 
@@ -77,11 +77,10 @@ const SingInFormCont = (props) => {
                 validate={[validSimpleInput, minSimbol6] }
                 type='password' name="password" component={InputCst} />
             </div>
-            <button className="authorization__button but_1" >login</button>
+            
+            <Button classes="authorization__button but1" content="login"/>
             <NavLink className={'form__link nav__item'} to='/auth/registration'>create accaunt</NavLink>
-            <div className={`loader loader__pattern ${props.loading ? ' _active' : ''}`}>
-                <img src={loaderPattern} alt="loader" />
-            </div>
+            <Loader loading={props.loading} />
         </form>
     )
 }
@@ -109,11 +108,9 @@ const RegistFormCont = (props) => {
                 validate={[validSimpleInput, minSimbol6] }
                 type="password" name="passwordRepit" component={InputCst} />
             </div>
-            <button className="authorization__button but_1" >registration</button>
+            <Button classes="authorization__button but1" content="registration"/>
             <NavLink className={'form__link nav__item'} to='/auth/singIn'>I have accoutn</NavLink>
-            <div className={`loader loader__pattern ${props.loading ? ' _active' : ''}`}>
-                <img src={loaderPattern} alt="loader" />
-            </div>
+            <Loader loading = {props.loading} />
         </form>
     )
 }
